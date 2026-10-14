@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram personal assistant (userbot)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/telegram-assistant
+ExecStart=/opt/telegram-assistant/venv/bin/python main.py
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=/opt/telegram-assistant/.env
+
+[Install]
+WantedBy=multi-user.target
